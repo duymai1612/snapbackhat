@@ -45,8 +45,8 @@ module.exports = {
 						res.status(404).end('Order not found');
 					}
 					else {
-						var orders = data;
-						res.status(200).end(JSON.stringify(orders));
+						var order = data;
+						res.status(200).end(`A${order.hat1}B${order.hat2}`);
 					}
 				}
 			})
