@@ -20,13 +20,7 @@ module.exports = {
 					res.status(500).end(err);
 				}
 				else {
-					if (data.length <= 0) {
-						res.status(404).end('Order not found');
-					}
-					else {
-						var orders = data;
-						res.status(200).end(JSON.stringify(orders));
-					}
+					res.status(200).end(JSON.stringify(data));
 				}
 			})
 		} catch (err) {
@@ -41,17 +35,22 @@ module.exports = {
 					res.status(500).end(err);
 				}
 				else {
-					if (data.length <= 0) {
-						res.status(404).end('Order not found');
-					}
-					else {
-						var order = data;
-						res.status(200).end(`A${order.hat1}B${order.hat2}`);
-					}
+					res.status(200).end(JSON.stringify(data));
 				}
 			})
 		} catch (err) {
 			res.status(500).end(err);
+		}
+	},
+
+	deleteAllOrders: function (req, res) {
+		try {
+			dataOrder.deleteAllOrders((err, data) => {
+				if (err) res.status(500).send(err).end();
+				res.status(200).send('Delete succeeded').end();
+			})
+		} catch (ex) {
+			res.status(500).send(ex).end();
 		}
 	}
 }

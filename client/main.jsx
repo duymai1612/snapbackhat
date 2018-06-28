@@ -64,7 +64,7 @@ export default class Main extends Component {
         })
     }
 
-    submitBuy = (e) => {
+    submitBuy = () => {
         const { hat1, hat2, storage, date, justBought } = this.state;
         if (!justBought) {
             if (hat1 > storage[0] || hat2 > storage[1]) {
@@ -84,6 +84,24 @@ export default class Main extends Component {
         }
     }
 
+    submitDelete = () => {
+        _helper.fetchAPI(
+            '/orders',
+            {},
+            [],
+            'DELETE'
+        )
+        .then((response) => {
+            if (response) {
+                const { data } = response;
+                if (data) {
+                    alert(data);
+                    this.setState({ orders: [] });
+                }
+            }
+        })
+    }
+
     componentDidMount = () => {
         this.getOrders();
     }
@@ -94,8 +112,9 @@ export default class Main extends Component {
             {}
         )
         .then((response) => {
-            if (response.status == 200) {
-                const orders = response.data;
+            const { status, data } = response;
+            if (status == 200) {
+                const orders = data;
                 this.setState({ orders });
             }
         })
@@ -128,7 +147,10 @@ export default class Main extends Component {
                     </OptionWrapper>
                 </Content>
                 <SubmitWrapper>
-                    <BuyButton onClick={(e) => this.submitBuy(e)}>Buy</BuyButton>
+                    <BuyButton onClick={this.submitBuy}>Buy</BuyButton>
+                </SubmitWrapper>
+                <SubmitWrapper>
+                    <BuyButton onClick={this.submitDelete}>Delete All Order(s)</BuyButton>
                 </SubmitWrapper>
                 <table className="table" id="bstable" >
                     <thead>
@@ -141,7 +163,7 @@ export default class Main extends Component {
                     </thead>
                     <tbody>
                         {orders.map((order, i) => (
-                            <tr>
+                            <tr key={order._id}>
                                 <th scope="row"> {i + 1} </th>
                                 <td> {order.hat1} </td>
                                 <td> {order.hat2} </td>

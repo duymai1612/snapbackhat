@@ -20,3 +20,9 @@ exports.createOrder = function (data, callback) {
     if (callback) callback(err, data);
   })
 }
+
+exports.deleteAllOrders = function (callback) {
+  Order.remove({}, function (err, data) {
+    if (callback) callback(err, data);
+  })
+}
