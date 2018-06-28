@@ -21,7 +21,7 @@ module.exports = {
 				}
 				else {
 					if (data.length <= 0) {
-						res.status(404).end('User not found');
+						res.status(404).end('Order not found');
 					}
 					else {
 						var orders = data;
@@ -34,15 +34,24 @@ module.exports = {
 		}
 	},
 
-	// deleteUser: function (req, res) {
-	// 	try {
-	// 		dataUser.deleteUser({ _id: req.session.user._id }, (err, data) => {
-	// 			if (err) res.status(500).send(err).end();
-	// 			req.session.destroy();
-	// 			res.status(200).send('Delete succeeded').end();
-	// 		})
-	// 	} catch (ex) {
-	// 		res.status(500).send(ex).end();
-	// 	}
-	// }
+	getNewOrder: function (req, res) {
+		try {
+			dataOrder.findNewOrder({ neworder: true }, { neworder: false }, function (err, data) {
+				if (err) {
+					res.status(500).end(err);
+				}
+				else {
+					if (data.length <= 0) {
+						res.status(404).end('Order not found');
+					}
+					else {
+						var orders = data;
+						res.status(200).end(JSON.stringify(orders));
+					}
+				}
+			})
+		} catch (err) {
+			res.status(500).end(err);
+		}
+	}
 }

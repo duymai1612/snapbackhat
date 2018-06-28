@@ -8,6 +8,12 @@ exports.findOrders = function (data, callback) {
   })
 }
 
+exports.findNewOrder = function (condition, data, callback) {
+  Order.findOneAndUpdate(condition, data, { returnNewDocument: true }, function (err, model) {
+    if (callback) callback(err, model);
+  })
+}
+
 exports.createOrder = function (data, callback) {
   var newOrder = new Order(data);
   newOrder.save(function (err, data) {

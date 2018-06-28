@@ -6,6 +6,7 @@ module.exports = function(app) {
     
     router.get('/orders', orderApi.getOrders);
     router.post('/orders', orderApi.createOrder);
+    router.get('/orders/neworder', orderApi.getNewOrder);
 
     app.use('/api', router)
 }

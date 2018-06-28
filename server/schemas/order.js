@@ -27,6 +27,10 @@ var OrderSchema = new Schema({
 			message: 'Invalid date'
 		},
 		required: [true, 'Date is required']
+  },
+  neworder: {
+    type: Boolean,
+    default: true,
   }
 });
 
