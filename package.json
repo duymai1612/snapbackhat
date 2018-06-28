@@ -1,7 +1,7 @@
 {
-  "name": "achievement-book",
+  "name": "snapbackhat",
   "version": "1.0.0",
-  "description": "This is book will archive everything for you to reach your long term objectives.",
+  "description": "This is a project to sell hats",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kieutridang/achievement-book.git"
+    "url": "git+https://github.com/duymai1612/snapbackhat.git"
   },
-  "author": "Kieu Tri Dang, Nguyen Ngoc Minh Huy, Nguyen Quang Thuc, Mai Ngoc Anh Duy, Do Nhat Huy",
+  "author": "Intro group 17",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kieutridang/achievement-book/issues"
+    "url": "https://github.com/duymai1612/snapbackhat/issues"
   },
-  "homepage": "https://github.com/kieutridang/achievement-book#readme",
+  "homepage": "https://github.com/duymai1612/snapbackhat#readme",
   "dependencies": {
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",

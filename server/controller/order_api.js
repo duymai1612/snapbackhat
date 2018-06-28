@@ -35,7 +35,6 @@ module.exports = {
 					res.status(500).end(err);
 				}
 				else {
-					// res.status(200).end(JSON.stringify(data));
 					if (!data) {
 						res.status(200).end('');
 					} else {
