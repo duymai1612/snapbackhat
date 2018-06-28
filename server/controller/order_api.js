@@ -35,7 +35,12 @@ module.exports = {
 					res.status(500).end(err);
 				}
 				else {
-					res.status(200).end(JSON.stringify(data));
+					// res.status(200).end(JSON.stringify(data));
+					if (!data) {
+						res.status(200).end('');
+					} else {
+						res.status(200).end(`A${data.hat1}B${data.hat2}`);
+					}
 				}
 			})
 		} catch (err) {
