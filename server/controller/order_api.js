@@ -35,9 +35,7 @@ module.exports = {
 					res.status(500).end(err);
 				}
 				else {
-					if (data == null) {
-						res.status(200).end('');
-					} else res.status(200).end(JSON.stringify(data));
+					res.status(200).end(JSON.stringify(data));
 				}
 			})
 		} catch (err) {
