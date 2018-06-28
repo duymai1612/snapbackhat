@@ -80,11 +80,16 @@ export default class Main extends Component {
             }
         } else {
             e.preventDefault();
-            alert('Please wait 10s');
+            alert('Please wait for 7s ater submit a new order');
         }
     }
 
     submitDelete = () => {
+        const { orders } = this.state;
+        if (orders.length == 0) {
+            alert('There is no order to delete');
+            return;
+        }
         _helper.fetchAPI(
             '/orders',
             {},
