@@ -64,7 +64,7 @@ export default class Main extends Component {
         })
     }
 
-    submitBuy = () => {
+    submitBuy = (e) => {
         const { hat1, hat2, storage, date, justBought } = this.state;
         if (!justBought) {
             if (hat1 > storage[0] || hat2 > storage[1]) {
